@@ -4,7 +4,7 @@ import ContactList from "./ContactList/ContactList";
 import ContactForm from "./ContactForm/ContactForm";
 import SearchBox from "./SearchBox/SearchBox";
 import { useSelector } from "react-redux";
-import { selectError, selectLoading } from "../redux/contactsSlice";
+import { selectError, selectLoading } from "../redux/contacts/selectors";
 
 const App = () => {
 
