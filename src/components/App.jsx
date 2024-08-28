@@ -5,21 +5,32 @@ import ContactForm from "./ContactForm/ContactForm";
 import SearchBox from "./SearchBox/SearchBox";
 import { useSelector } from "react-redux";
 import { selectError, selectLoading } from "../redux/contacts/selectors";
+import Navigation from "./Navigation/Navigation";
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import HomePage from "../pages/HomePage/HomePage";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
+import Phonebook from "../pages/Phonebook/Phonebook";
+import NotFound from "../pages/NotFound/NotFound";
 
 const App = () => {
 
-  const isLoading = useSelector(selectLoading);
-  const isError = useSelector(selectError);
 
-    return (
+  return (
+      
       <div className="container">
-        <h1 className="title">Phonebook</h1>
-        <ContactForm />
-        <SearchBox />
-        <ContactList />
-        {isLoading && <h1 className="loading">Loading...</h1>}
-        {isError && <h2 className="error">Oops, something went wrong...</h2>}
-
+       
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="phonebook" element={<Phonebook />} />
+        </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="*" element={ <NotFound />} />
+      </Routes>
+      
     </div>
   );
 };
