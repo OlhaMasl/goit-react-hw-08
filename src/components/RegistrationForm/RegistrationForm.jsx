@@ -1,7 +1,11 @@
 import { Field, Form, Formik } from "formik";
 import s from "./RegistrationForm.module.css";
+import { useDispatch } from "react-redux";
+import { registerThunk } from "../../redux/auth/authOps";
 
 const RegistrationForm = () => {
+
+    const dispatch = useDispatch();
 
     const initialValues = {
         name: "",
@@ -10,10 +14,10 @@ const RegistrationForm = () => {
     };
 
     const handleSubmit = (values, options) => {
-        console.log(values);
+        dispatch(registerThunk(values));
         options.resetForm();
-
     };
+
     return (
         <div>
             <Formik initialValues={initialValues} onSubmit={handleSubmit}>

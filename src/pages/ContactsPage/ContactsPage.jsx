@@ -3,7 +3,7 @@ import ContactForm from "../../components/ContactForm/ContactForm";
 import ContactList from "../../components/ContactList/ContactList";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { selectError, selectLoading } from "../../redux/contacts/selectors";
-import s from "./Phonebook.module.css";
+import s from "./ContactsPage.module.css";
 
 
 const Phonebook = () => {
